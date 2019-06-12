@@ -27,6 +27,16 @@ docker build -f Dockerfile.10.3 -t hersonpc/paserver:10.3 .
 docker build -f Dockerfile.10.3.1 -t hersonpc/paserver:10.3.1 .
 ```
 
+___
+
+##### To push local images to docker hub
+```
+docker login
+docker push hersonpc/paserver:<version>
+```
+
+___
+
 
 ## Running docker images
 https://hub.docker.com/r/hersonpc/paserver
