@@ -27,6 +27,21 @@ docker build -f Dockerfile.10.3 -t hersonpc/paserver:10.3 .
 docker build -f Dockerfile.10.3.1 -t hersonpc/paserver:10.3.1 .
 ```
 
+### RAD Studio Sydney (10.4)
+```
+docker build -f Dockerfile.10.4 -t hersonpc/paserver:10.4 .
+```
+
+### RAD Studio Sydney (10.4.1)
+```
+docker build -f Dockerfile.10.4.1 -t hersonpc/paserver:10.4.1 .
+```
+
+### RAD Studio Sydney (10.4.2)
+```
+docker build -f Dockerfile.10.4.2 -t hersonpc/paserver:10.4.2 .
+```
+
 ___
 
 ##### To push local images to docker hub

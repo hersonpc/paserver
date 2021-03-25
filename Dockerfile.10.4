@@ -1,0 +1,27 @@
+FROM ubuntu:20.04
+
+LABEL maintainer="Herson Melo <hersonpc@gmail.com>"
+
+WORKDIR /app
+
+RUN \
+    apt-get -y update && \
+    apt-get -y install joe wget p7zip-full curl unzip build-essential zlib1g-dev libcurl4-gnutls-dev && \
+    apt-get -y install mysecureshell && \
+    apt-get -y autoremove && \
+    apt-get -y autoclean
+
+# RAD Studio Sydney (10.4)
+RUN wget http://altd.embarcadero.com/releases/studio/21.0/PAServer/LinuxPAServer21.0.tar.gz
+
+RUN \
+    tar -xvf LinuxPAServer21.0.tar.gz && \
+    rm LinuxPAServer21.0.tar.gz && \
+    cd PAServer-21.0
+
+WORKDIR /app/PAServer-21.0
+
+CMD ["/app/PAServer-21.0/paserver", "-password="]
+
+EXPOSE 64211
+EXPOSE 8080
