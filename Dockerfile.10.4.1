@@ -4,8 +4,9 @@ LABEL maintainer="Herson Melo <hersonpc@gmail.com>"
 
 WORKDIR /app
 
-RUN \
-    apt-get -y update && \
+ENV DEBIAN_FRONTEND noninteractive
+
+RUN apt-get -y update && \
     apt-get -y install joe wget p7zip-full curl unzip build-essential zlib1g-dev libcurl4-gnutls-dev && \
     apt-get -y install mysecureshell && \
     apt-get -y autoremove && \
