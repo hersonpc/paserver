@@ -1,0 +1,28 @@
+FROM ubuntu:20.04
+
+LABEL authors="Herson Melo <hersonpc@gmail.com>, Alessandro Bartoli <alessandro@bartolilab.it>"
+
+WORKDIR /app
+
+ENV DEBIAN_FRONTEND noninteractive
+
+RUN apt-get -y update && \
+    apt-get -y install joe wget p7zip-full curl unzip build-essential zlib1g-dev libcurl4-gnutls-dev libncurses5 && \
+    apt-get -y install mysecureshell && \
+    apt-get -y autoremove && \
+    apt-get -y autoclean
+
+# RAD Studio Alexandria (11.1)
+RUN wget https://altd.embarcadero.com/releases/studio/22.0/111/LinuxPAServer22.0.tar.gz
+
+RUN \
+    tar -xvf LinuxPAServer22.0.tar.gz && \
+    rm LinuxPAServer22.0.tar.gz && \
+    cd PAServer-22.0
+
+WORKDIR /app/PAServer-22.0
+
+CMD ["/app/PAServer-22.0/paserver", "-password="]
+
+EXPOSE 64211
+EXPOSE 8080

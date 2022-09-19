@@ -5,6 +5,7 @@ Embarcadero PAServer in a Docker Container
 Ambiente de compilação Delphi em Linux
 
 ## Running docker images
+
 https://hub.docker.com/r/hersonpc/paserver
 
 Para rodar o PAServer como um container do Docker, basta exectar o comando com a versão adequada para a versão do Delphi que estiver sendo executada no ambiente de desemvolvimento.
@@ -30,6 +31,9 @@ docker run -it -d --name paserver -p 64211:64211 hersonpc/paserver:10.4.1
 
 ### RAD Studio Sydney (10.4.2)
 docker run -it -d --name paserver -p 64211:64211 hersonpc/paserver:10.4.2
+
+### RAD Studio Alexandria (11.1)
+docker run -it -d --name paserver -p 64211:64211 hersonpc/paserver:11.1
 ```
 
 ## Building docker images
@@ -57,8 +61,10 @@ docker build -f Dockerfile.10.4.1 -t hersonpc/paserver:10.4.1 .
 
 ### RAD Studio Sydney (10.4.2)
 docker build -f Dockerfile.10.4.2 -t hersonpc/paserver:10.4.2 .
-```
 
+### RAD Studio Alexandria (11.1)
+docker build -f Dockerfile.11.1 -t hersonpc/paserver:11.1 .
+```
 
 ### To push local images to docker hub
 
